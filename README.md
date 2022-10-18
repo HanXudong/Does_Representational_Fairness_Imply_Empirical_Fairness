@@ -2,16 +2,7 @@
 
 Source codes for AACL 2022 paper "Does Representational Fairness Imply Empirical Fairness?" 
 
-If you use the code, please cite the following paper:
-
-```
-@article{han2022systematic,
-      title={Systematic Evaluation of Predictive Fairness}, 
-      author={Aili Shen and Xudong Han and Trevor Cohn and Timothy Baldwin and Lea Frermann},
-      year={2022},
-      journal={arXiv preprint arXiv:2210.08758},
-}
-```
+If you use the code, please cite the following paper.
 
 # Quick Links
 + [Overview](#overview)
