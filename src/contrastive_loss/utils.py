@@ -2,8 +2,12 @@ import torch
 import torch.nn as nn
 
 class Contrastive_Loss(torch.nn.Module):
-    """Supervised Contrastive Learning: https://arxiv.org/pdf/2004.11362.pdf.
-    It also supports the unsupervised contrastive loss in SimCLR"""
+    """
+    Supervised Contrastive Learning: https://arxiv.org/pdf/2004.11362.pdf.
+    It also supports the unsupervised contrastive loss in SimCLR
+    
+    From https://github.com/AiliAili/contrastive_learning_fair_representations/blob/master/networks/contrastive_loss.py
+    """
 
     def __init__(self, device, temperature=0.07, base_temperature=0.07):
         super(Contrastive_Loss, self).__init__()
@@ -12,12 +16,11 @@ class Contrastive_Loss(torch.nn.Module):
         self.base_temperature = base_temperature
 
     def forward(self, features, labels):
-        #print((features[0]**2).sum())
         batch_size = features.shape[0]
         labels = labels.contiguous().view(-1, 1)
         assert labels.shape[0] == batch_size
         mask = torch.eq(labels, labels.T).float().to(self.device)
-        
+
         contrast_count = 1
         contrast_feature = features
 
@@ -31,7 +34,6 @@ class Contrastive_Loss(torch.nn.Module):
         logits_max, _ = torch.max(anchor_dot_contrast, dim=1, keepdim=True)
         logits = anchor_dot_contrast-logits_max.detach()
         
-
         #tile mask
         mask = mask.repeat(anchor_count, contrast_count)
         #mask out self-contrast cases
@@ -49,6 +51,5 @@ class Contrastive_Loss(torch.nn.Module):
         mean_log_prob_pos = (mask*log_prob).sum(1)/(1+mask.sum(1))
 
         loss = -mean_log_prob_pos
-        #loss = -(self.temperature/self.base_temperature)*mean_log_prob_pos
         loss = loss.mean()
         return loss
