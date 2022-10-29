@@ -1,4 +1,4 @@
-# contrastive_learning_repo
+# Does Representational Fairness Imply Empirical Fairness?
 
 Source codes for AACL 2022 paper "Does Representational Fairness Imply Empirical Fairness?" 
 
