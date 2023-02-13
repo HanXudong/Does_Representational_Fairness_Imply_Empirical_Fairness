@@ -4,6 +4,26 @@ Source codes for AACL 2022 paper "Does Representational Fairness Imply Empirical
 
 If you use the code, please cite the following paper.
 
+```
+@inproceedings{shen-etal-2022-representational,
+    title = "Does Representational Fairness Imply Empirical Fairness?",
+    author = "Shen, Aili  and
+      Han, Xudong  and
+      Cohn, Trevor  and
+      Baldwin, Timothy  and
+      Frermann, Lea",
+    booktitle = "Findings of the Association for Computational Linguistics: AACL-IJCNLP 2022",
+    month = nov,
+    year = "2022",
+    address = "Online only",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2022.findings-aacl.8",
+    pages = "81--95",
+    abstract = "NLP technologies can cause unintended harms if learned representations encode sensitive attributes of the author, or predictions systematically vary in quality across groups. Popular debiasing approaches, like adversarial training, remove sensitive information from representations in order to reduce disparate performance, however the relation between representational fairness and empirical (performance) fairness has not been systematically studied. This paper fills this gap, and proposes a novel debiasing method building on contrastive learning to encourage a latent space that separates instances based on target label, while mixing instances that share protected attributes. Our results show the effectiveness of our new method and, more importantly, show across a set of diverse debiasing methods that \textit{representational fairness does not imply empirical fairness}. This work highlights the importance of aligning and understanding the relation of the optimization objective and final fairness target.",
+}
+
+```
+
 # Quick Links
 + [Overview](#overview)
 
